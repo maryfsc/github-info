@@ -12,12 +12,10 @@ class SearchUser extends Component {
     e.preventDefault();
 
     GitHubUser.getByUsername(this.refs.username.value)
-      .then((res) => res.json())
-      .then((data) => this.props.updateUser(data.data));
+      .then((res) => this.props.updateUser(res.data));
 
     GitHubUser.getReposByUserName(this.refs.username.value)
-      .then((res) => res.json())
-      .then((data) => this.props.updateRepos(data.data));
+      .then((res) => this.props.updateRepos(res.data));
   }
 
   render() {

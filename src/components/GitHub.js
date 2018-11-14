@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchUser from './SearchUser';
+import UserInfo from './UserInfo';
 
 
 class GitHub extends Component {
@@ -28,7 +29,11 @@ class GitHub extends Component {
       <div className="container-fluid">
         <SearchUser
           updateUser={this.updateUser}
-          updateRepos={this.updateRepos} />
+          updateRepos={this.updateRepos} 
+        />
+        <UserInfo 
+          user={this.state.user}
+          repos={this.state.repos} />
       </div>
     )
   }
