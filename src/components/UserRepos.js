@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
 
 class UserRepos extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      reposCount: 0
+    }
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({ reposCount: props.repos.length })
+  }
+
   render() {
     var repos = this.props.repos.map((repo, key) => {
       return (
@@ -22,6 +34,7 @@ class UserRepos extends Component {
   
   return (
     <div>
+      <h2>{this.state.reposCount} Repositories</h2>
       {repos}
     </div>
   )
